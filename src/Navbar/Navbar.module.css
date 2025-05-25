@@ -1,0 +1,144 @@
+:root {
+    --color_1: #F5AE6F;
+    --color_2: white;
+    --color_3: black;
+    --color_4: #975203;
+    --bg-indicator: #d67b13;
+}
+
+nav {
+    height: 4rem;
+    width: 100vw;
+    font-weight: bold;
+    font-family: "Kanit", sans-serif;
+    font-weight: 700;
+    display: flex;
+    background-color: var(--color_1);
+    justify-content: space-between;
+    top: 0;
+    position: relative;
+}
+
+
+nav > div {
+    display: flex;
+    align-items: center;
+}
+
+nav .titleWrapper {
+    margin-left: 1rem;
+    font-family: "Martian Mono", monospace;
+    font-size: xx-large;
+    color: var(--color_2);
+    gap: clamp(.1rem, 2vw, 1rem);
+    font-size: clamp(1rem, 2vw, 2rem);
+}
+
+nav .titleWrapper > img {
+    display: flex;
+    width: 30px;
+}
+
+nav .links {
+    display: flex;
+    gap: clamp(.25rem, 2vw, 2.5rem);
+    font-size: clamp(.3rem, 2vw, 1rem);
+}
+
+nav .links .Links {
+    display: flex;
+    align-items: center;
+    gap: clamp(.05rem, 2vw, .5rem);
+    position: relative;
+    text-decoration: none;
+    color: var(--bg-indicator);
+}
+
+nav .links .Links > span {
+    position: relative;
+}
+
+nav .links .indicated {
+    color: var(--color_4);
+    text-shadow: 0 0 5px var(--color_4);
+    margin: 0;
+}
+
+nav .links .indicated .indicator {
+    position: absolute;
+    bottom: -.25rem;
+    left: 0;
+    height: .2rem;
+    width: 100%;
+    z-index: 1;
+    background-color: #975203;
+    transform: scaleX(0);
+    animation: indic .75s forwards ease-out;
+}
+
+nav .authWrapper {
+    margin-right: 1rem;
+    gap: clamp(.1rem, 2vw, 1rem);
+}
+
+
+nav .authWrapper .HamburgerButt{
+    display: none;
+}
+
+nav .authWrapper > button {
+    font-size: clamp(.5rem, 2vw, 1.1rem) ;
+    font-family: "Kanit", sans-serif;
+    font-weight: bold;
+    padding: clamp(.3rem, 2vw, .5rem) clamp(.5rem, 2vw, 1.2rem) ;
+    border-radius: 12px;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    text-wrap: nowrap;
+    gap: .5rem;
+}
+
+
+/* Left Button for Sign In */
+
+
+nav .authWrapper .leftButt {
+    background-color: var(--color_2);
+    color: var(--color_1);
+}
+
+nav .authWrapper .leftButt:hover {
+    color: var(--color_2);
+    background-color: var(--color_4);
+}
+
+nav .authWrapper .leftButt:active {
+    background-color: #f7cdcd;
+    color: #975203;
+}
+
+/* Right Button for Sign Up */
+
+nav .authWrapper .rightButt {
+    background-color: black;
+    color: white;
+}
+
+nav .authWrapper .rightButt:hover {
+    background-color: white;
+    color: black;
+}
+
+nav .authWrapper .rightButt:active {
+    background-color: #f7cdcd;
+    color: #975203;
+}
+
+
+@keyframes indic {
+    to{
+        transform: scaleX(1.2);
+    }
+}
