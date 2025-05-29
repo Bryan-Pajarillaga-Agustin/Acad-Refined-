@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kulim+Park:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&family=Martian+Mono:wght@100..800&display=swap');
+
+.hideTasksWrapper {
+    display: none;
+}
+
+.tasksWrapper{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-family: "Kanit", sans-serif;
+}
+
+.tasksWrapper .tasksEditor {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100%;
+}
+
+.tasksWrapper .tasksEditor > h2{
+    background-color: #975203;
+    text-align: center;
+    width: 100%;
+    height: 10rem;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    font-weight: 500;
+}
+
+.tasksWrapper .tasksEditor > h2 > i {
+    position: absolute;
+    font-size: 1.5rem;
+    right: 1rem;
+    padding: .5rem .75rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .15s ease-in;
+}
+
+.tasksWrapper .tasksEditor > h2 > i:hover {
+    background-color: #F0AB3C;
+}
+
+.searchWrapper {
+    box-shadow: 0 5px 20px 1px rgba(216, 214, 214, 0.985);
+    height: fit-content;
+    background-color: #f9f5f1da;
+    width: 97%;
+    border: 1.5vw solid #F0AB3C;
+    border-bottom: none;
+}
+
+.searchWrapper > div {
+    display: flex;
+    margin: .5rem;
+}
+
+.searchWrapper > div > * {
+    font-size: clamp(.9rem, 2vw, 1.3rem);
+    padding: clamp(0rem, 2vw, .25rem) clamp(.05rem, 2vw, .5rem);
+}
+
+.searchWrapper > div > label {
+    border-bottom: .3rem solid black;
+    border-left: .3rem solid black;
+    border-top: .3rem solid black;
+    border-radius: .5rem 0 0 .5rem;
+}
+
+.searchWrapper > div > input {
+    border: 0;
+    border-bottom: .3rem solid black;
+    border-top: .3rem solid black;
+    outline: none;
+    width: 100%;
+}
+
+.searchWrapper > div > button {
+    border: 0;
+    border-top: .3rem solid black;
+    border-bottom: .3rem solid black;
+    border-right: .3rem solid black;
+    border-radius: 0 .5rem .5rem 0;
+    background-color: #F0AB3C;
+    color: white;
+    transition: all .3s ease-in
+}
+
+
+
+@media (max-width: 600px) and (max-height: 800px) {
+    .tasksWrapper .tasksEditor > h2 {
+        height: 7rem;
+    }
+}

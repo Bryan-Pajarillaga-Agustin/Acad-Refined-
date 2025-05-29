@@ -1,0 +1,186 @@
+.Prompt_Box {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 25%;
+    height: fit-content;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    bottom: -100px;
+    background-color: #F0AB3C;
+    color: white;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px -1px black;
+    border-radius: 1rem;
+    align-items: center;
+    font-size: .75rem;
+    text-align: center;
+}
+
+.Prompt_Box .Close_Button {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+    top: 0;
+    right: 0;
+}
+
+.Prompt_Box > button, .Prompt_Box > label {
+    color: #F0AB3C;
+    background-color: white;
+    border-radius: .3rem;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    cursor: pointer;
+    border: none;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: bolder;
+    position: relative;
+    box-shadow: 0 2px 5px -1px black;
+    width: 12rem;
+    transition: all .3s ease-out;
+}
+
+.Prompt_Box > button {
+    padding: .25rem .5rem;
+}
+
+.Prompt_Box > button:hover, .Prompt_Box > label:hover {
+    color: white;
+    background-color:#F0AB3C;
+}
+
+.Prompt_Box > button:active, .Prompt_Box > label:active {
+    filter: brightness(.8);
+}
+
+.Prompt_Box .colorPicker > span{
+    padding-left: 2rem;
+    padding-bottom: clamp(0rem, 2vw, .125rem);
+    padding-top: clamp(0rem, 2vw, .125rem);
+    padding-right: clamp(.05rem, 2vw, .5rem);
+}
+
+.Prompt_Box .colorPicker > input {
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    width: 1rem;
+    height: 1rem;
+    left: .5rem;
+}
+
+.Hide_BG_Color_Prompt,
+.Hide_Color_Prompt,
+.Hide_Border_Color_Prompt,
+.Hide_Font_Weight_Prompt,
+.Hide_Italic_Prompt {
+    display: none;
+}
+
+.BG_Color_Prompt,
+.Color_Prompt,
+.Border_Color_Prompt,
+.Font_Weight_Prompt,
+.Italic_Prompt{
+    display: flex;
+} 
+
+.topOptionsWrapper {
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    background-color: #D9D9D9;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.topOptionsBox {
+    width: 95%;
+    gap: .5rem;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.topOptionsBox::-webkit-scrollbar{
+    display: none;
+}
+
+.topOptionsBox > button {
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    color: white;
+    background-color: #F0AB3C;
+    padding: clamp(0rem, 2vw, .25rem) clamp(.05rem, 2vw, .5rem);
+    border: .3rem solid black;
+    border-radius: .3rem;
+    gap: .5rem;
+    text-wrap: nowrap;
+}
+
+.topOptionsBox > button > span {
+    text-wrap: nowrap;
+}
+
+.topOptionsBox > button:hover {
+    color: #F0AB3C;
+    background-color: white;
+    border: .3rem solid #F0AB3C;
+}
+
+.topOptionsBox *{
+    font-size: clamp(.9rem, 2vw, 1.3rem);
+    font-weight: bold;
+}
+
+.topOptionsBox .createTask{
+    width: fit-content;
+}
+
+
+
+.topOptionsBox .colorPicker {
+    position: relative;
+    width: fit-content;
+}
+
+.notWorking {
+    filter: brightness(.7); 
+}
+
+
+@media (max-width: 600px) and (max-height: 800px) {
+    .Options_tab {
+        bottom: 0;
+    }
+    .Prompt_Box {
+        height: fit-content;
+    }
+
+    .topOptionsBox {
+        gap: .75rem;
+    }
+
+    .topOptionsBox  > button{
+        padding: .3rem;
+        width: fit-content;
+    }
+
+    .topOptionsBox > button .arrow {
+        transform: rotateZ(0deg);
+    }
+}

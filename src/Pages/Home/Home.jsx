@@ -5,7 +5,8 @@ import Button from '../../Components/Button'
 import { Link } from 'react-router-dom'
 import { context } from '../../App'
 const Home = () => {
-  const {setPages} = useContext(context) 
+  const {pagination} = useContext(context) 
+  
   
 
   return (
@@ -19,7 +20,7 @@ const Home = () => {
             </h1>
             <p>Write, read and document your work and studies using the Acad Web App for free!</p>
             <Link to={"/Acad/Tasks"} className={s.Links}>
-              <Button content={"Get Started"} func={()=>{handlePages(1)}}></Button>
+              <Button content={"Get Started"} func={()=>{pagination(1)}}></Button>
             </Link>
           </div>
           <div className={s.wrapBottom}>

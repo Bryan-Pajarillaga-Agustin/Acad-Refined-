@@ -32,7 +32,7 @@
 
 .homeWrapper .left .wrapTop > h1 {
     color: var(--color-1); 
-    font-size: 4rem;
+    font-size: 3.5rem;
     display: flex;
     align-items: center;
 }    
@@ -43,7 +43,7 @@
 }
 
 .homeWrapper .left .wrapTop > p {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 2vw, 1.5rem);
 }    
 
 .homeWrapper .left .wrapTop .Links > button {
@@ -51,9 +51,9 @@
     color: white; 
     border: none;
     border-radius: 3rem;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     font-weight: 700;
-    padding: 1.2rem 1.1rem;
+    padding: clamp(.75rem, 2vw, 1.2rem) clamp(.5rem, 2vw, 1.2rem);
     box-shadow: 0 5px 10px -5px black;
 }    
 
@@ -98,4 +98,59 @@
 
 .homeWrapper .right > img {
     width: 70%;
+}
+
+@media (max-width: 600px) and (max-height: 400px) {
+    .homeWrapper .right > img{
+        width: 40vw;
+        margin: 1rem 0;
+    }
+}
+
+/* Mobile View */
+@media (max-width: 600px) and (max-height: 800px) {
+    .homeWrapper {
+        flex-direction: column-reverse;
+        margin-top: 0;
+    }
+
+    .homeWrapper .left {
+        width:  100vw;
+        height: 50vh;
+    }
+
+    .homeWrapper .left .wrapTop {
+        width: 100vw;
+    }
+
+    .homeWrapper .left .wrapTop > * {
+        margin-left: 1rem;
+    }
+
+    .homeWrapper .left .wrapTop > button {
+        margin-right: 1rem;
+    }
+
+    .homeWrapper .left .wrapBottom {
+        margin-left: auto;
+        margin-right: 1rem;
+        width: fit-content;
+    }
+
+    .homeWrapper .right{
+        width: 100vw;
+        height: fit-content;
+    }
+
+
+    .homeWrapper .left .wrapTop > button {
+        background-color: var(--color-1);
+        color: white; 
+        border: none;
+        border-radius: 3rem;
+        font-size: .8rem;
+        font-weight: 700;
+        padding: 1.2rem 1.1rem;
+        margin-left: auto;
+    }    
 }

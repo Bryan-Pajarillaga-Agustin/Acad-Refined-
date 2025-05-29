@@ -1,0 +1,191 @@
+:root {
+    --bgColor: #d9d9d9;
+    --buttColor: white;
+    --buttBgColor: #ffa500;
+    --tabNameColor: #ffa500;
+    --folderBgColor: #fff;
+} 
+
+.foldersWrapper {
+    display: flex;
+    flex-direction: column;
+    font-family: Kanit;
+    background-color: var(--bgColor);
+    height: 100vh;
+    width: 100vw;
+}
+
+.foldersWrapper button {
+    padding: clamp(.3rem, 2vw, .75rem) clamp(.5rem, 2vw, 1rem);
+    outline: none;
+    border: none;
+    border-radius: .5rem;
+    background-color: var(--buttBgColor);
+    color: var(--buttColor);
+    border: .2rem solid var(--buttBgColor);
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    gap: .5rem;
+    transition: .2s ease-out;
+}
+
+.foldersWrapper button:hover {
+    background-color: var(--buttColor);
+    color: var(--buttBgColor);
+}
+
+.foldersNav {
+    display: flex;
+    width: 100vw; 
+    height: 4.5rem;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.foldersNav .horizontalLine {
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    background-color: black;
+    width: 100%;
+    transform: scaleX(.97);
+}
+
+.foldersNav h1 {
+    color: var(--tabNameColor);
+    margin-left: 1rem;
+}
+
+.foldersNav .right {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: fit-content;
+    gap: .75rem;
+    margin-right: 1rem;
+}
+
+.foldersBottomNav {
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.foldersWrapper .foldersBottomNav .left >  button .uncheck {
+    background-color: white;
+    color: transparent;
+}
+
+.foldersWrapper .foldersBottomNav .left >  button:hover .uncheck {
+    color: white;
+}
+
+.foldersBottomNav .left, .foldersBottomNav .right{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.foldersBottomNav .left {
+    margin-left: 1rem;
+}
+
+.foldersBottomNav .right {
+    margin-right: 1rem;
+}
+
+.foldersWrapper .foldersBox {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+.foldersBox .folderPathWrapper > h3 {
+    color: var(--buttBgColor);
+}
+
+.foldersBox .folderPathWrapper > h3 > span > span {
+    border-bottom: .2rem solid var(--buttBgColor);
+    margin: .2rem;
+    cursor: pointer;
+}
+
+.foldersBox .folderPathWrapper > h3 > span > span:hover {
+    color: white;
+    border-bottom: .2rem solid white;
+}
+
+.foldersBox .hideFolderInput {
+    display: none;
+}
+
+.foldersBox .folderInput .close {
+    position: absolute;
+    right: 2rem;
+}
+
+.foldersBox .folder, .foldersBox .folderInput {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    background-color: var(--folderBgColor);
+    color: var(--tabNameColor);
+    border: .25em solid var(--buttBgColor);
+    border-radius: .5rem;
+    margin-top: .5rem;
+    cursor: pointer;
+    transition: .3s ease-in-out,
+                filter .1s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.foldersBox .folder .open{
+    display: none;
+}
+
+.foldersBox .folder:hover .open {
+    position: absolute;
+    display: block;
+    background-color: #e8b246;
+    right: -4rem;
+    animation: showOpenButton .3s ease-out forwards;
+}
+
+.foldersBox .folder:hover .open:hover {
+    background-color: white;
+    color: var(--buttBgColor);
+}
+
+@keyframes showOpenButton {
+    to {
+        right: 1rem;
+    }
+}
+
+.foldersBox .folder:active {
+    filter: brightness(.9);
+}
+
+.foldersBox .folder:hover {
+    background-color: var(--tabNameColor);
+    color: white;
+}
+
+.foldersBox .selected {
+    background-color: var(--tabNameColor);
+    color: white;
+}
+
+.folder > *, .folderInput > * {
+    margin:  1rem 0 1rem 1rem;
+}
+
+@media (max-width: 600px) and (max-height: 800px) {
+    .foldersWrapper button .fullContent{
+        display: none;
+    }
+}

@@ -3,23 +3,14 @@ import s from "./Navbar.module.css"
 import { context } from '../App'
 import { Link } from 'react-router-dom'
 const Navbar = () => {
-  const {pages, setPages, user} = useContext(context)
+  const {pages, pagination, user, hideNavBar, setHideNavBar, hideSideBar, setHideSideBar} = useContext(context)
   useEffect(()=>{
     console.log(pages)
   },[pages])
 
-  function handlePagination(index) {
-    setPages(prev => prev.map((page, i)=>{
-      if(i === index) {
-        return {...page, ind: true}
-      }
 
-      return {...page, ind: false}
-    }))
-  }
-
-  return (
-    <nav className={s.navBar}>
+  return <>
+    <nav className={hideNavBar ? s.hideSideBar : s.navBar}>
       <div className={s.titleWrapper}>
         <h1>Acad</h1>
       </div>
@@ -31,7 +22,7 @@ const Navbar = () => {
               to={page.to} 
               key={page.name} 
               className={page.ind ? `${s.indicated} ${s.Links}` : s.Links}
-              onClick={()=>{handlePagination(i)}}>
+              onClick={()=>{pagination(i)}}>
               <i className={page.icon}></i>
               <span>{page.name}</span>
               <span className={s.indicator}></span>
@@ -42,10 +33,34 @@ const Navbar = () => {
 
       <div className={s.authWrapper}>
         <AuthButtons user={user}/>
+        <button 
+          className={s.hamButton}
+          onClick={()=>{hideSideBar ? setHideSideBar(false) : setHideSideBar(true)}}>
+            <i className="fa fa-list-ul" ></i>
+        </button>
       </div>
     </nav>
-  )
+
+    <nav className={hideSideBar ? s.hideSideBar : s.sideBar}>
+      <ul className={hideSideBar ? s.hideNavLinks : s.NavLinks}>
+        <button className={s.hamButton} onClick={()=>{hideSideBar  ? setHideSideBar(false) : setHideSideBar(true)}} ><i className="fa fa-list-ul" ></i></button>
+        {
+          pages?.map((page,i) => 
+            <Link 
+              to={page.to} 
+              key={page.name} 
+              className={page.ind ? `${s.indicated} ${s.Links}` : s.Links}
+              onClick={()=>{pagination(i)}}>
+              <i className={page.icon}></i>
+              <span>{page.name}</span>
+            </Link>)
+        }
+      </ul>
+    </nav>
+  </>
 }
+
+// Authentication Buttons Component
 
 const AuthButtons = ({user}) => {
   if(user) {

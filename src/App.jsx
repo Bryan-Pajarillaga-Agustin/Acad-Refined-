@@ -12,6 +12,9 @@ import Dashboard from './Pages/Dashboard/Dashboard'
 // Authentication Components
 import Login from "./Authentication/Login/Login"
 import SignUp from "./Authentication/SignUp/SignUp"
+// Other Components
+import Loading from './Components/Loading/Loading'
+import SaveChanges from './Components/SaveChanges/SaveChanges'
 // PageNotFound
 import PageNotFound from './PageNotFound/PageNotFound'
 import { BrowserRouter, Routes, Route} from "react-router-dom"
@@ -34,6 +37,9 @@ function App() {
   const [showLogin, setShowLogin] = useState(false)
   const [showMakeUserSignIn, setShowMakeUserSignIn] = useState(false)
   const [hideNavbar, setHideNavbar] = useState(false)
+  const [hideSideBar, setHideSideBar] = useState(false)
+  const [hideSaveChanges, setHideSaveChanges] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const [user, setUser] = useState()
   const [userData, setUserData] = useState([])
@@ -54,6 +60,12 @@ function App() {
     setShowMakeUserSignIn,
     hideNavbar,
     setHideNavbar,
+    hideSideBar,
+    setHideSideBar,
+    hideSaveChanges,
+    setHideSaveChanges,
+    loading,
+    setLoading,
 
     // Arrays & Objects
     user,
@@ -61,7 +73,22 @@ function App() {
     userData,
     setUserData,
     pages,
-    setPages
+    setPages,
+
+    // Functions
+    pagination: (i)=>{
+      handlePages(i)
+      console.log(i)
+    }
+  }
+
+  function handlePages(index) {
+    console.log(index)
+    setPages((prev, i) => prev.map((page, i)=>
+      index == i ?
+      {...page, ind: true} :
+      {...page, ind: false}
+    ))
   }
 
   return (
@@ -72,10 +99,12 @@ function App() {
           <Routes>
             {
               router?.map(page => 
-                <Route path={page.path} key={page.path} element={page.element}/>
+                <Route path={page.path} key={page.path} element={page.element} />
               )
             }
           </Routes>
+          <Loading></Loading>
+          <SaveChanges></SaveChanges>
         </BrowserRouter>
       </context.Provider>
     </>
