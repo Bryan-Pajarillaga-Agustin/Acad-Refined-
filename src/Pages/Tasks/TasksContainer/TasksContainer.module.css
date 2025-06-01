@@ -1,0 +1,84 @@
+.tasksContainer {
+    width: 97%;
+    height: 100%;
+    font-size: clamp(.87rem, 2vw, 3rem);
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    gap: .25rem;
+    align-items: center;
+    border: 1.5vw solid #f09c2e;
+    border-top: 0vw;
+    overflow-y: auto;
+    padding-bottom: .5rem;
+}
+
+.tasksContainer > ul {
+    width: 100%;
+}
+
+.tasksContainer label:hover {
+    filter: brightness(.8);
+}
+
+.tasksContainer .tasks {
+    width: 85%;
+    height: fit-content;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    border-radius: 1rem;
+    align-items: center;
+    cursor: pointer;
+    transition: .15s ease-in;
+    text-wrap: nowrap;
+}
+
+.tasksContainer .Finished {
+    background-color: #51af0f;
+    border: .25rem solid rgb(8, 97, 20);
+}
+
+.tasksContainer .tasks > i{
+    height: fit-content;
+    width: fit-content;
+    padding: 0;
+    margin: 0;
+}
+
+.tasksContainer .tasks > span {
+    width: 85%;
+    overflow: hidden;
+}
+
+.tasksContainer .tasks > span:after {
+    content: "...";
+}
+
+.unchecked {
+    color: transparent;
+}
+
+.checked {
+    color: white;
+}
+
+.col {
+    color: white;
+}
+
+.br{
+    border: .25rem solid rgb(209, 108, 6);
+}
+
+.fs {
+    font-style: normal;
+}
+
+.bgC {
+    background-color: #f09c2e;
+}
+
+.fW {
+    font-weight: normal;
+}

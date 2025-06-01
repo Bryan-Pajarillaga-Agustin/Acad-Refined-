@@ -1,179 +1,147 @@
 :root {
+    --nav-bg-color: #F5AE6F;
+    --nav-title: white;
+    --nav-color: #975203;
+    --nav-indColor:#695033;
+    --nav-signUp: black;
+    --nav-sigIn: white;
+    --fontFam: Kanit;
+    --bgColor: #d9d9d9;
+    --buttColor: white;
+    --buttBgColor: #ffa500;
+    --tabNameColor: #ffa500;
+    --BgColor: #fff;
+
     --color_1: #F5AE6F;
     --color_2: white;
     --color_3: black;
     --color_4: #975203;
-    --bg-indicator: #d67b13;
+    --sideBarIndicator: #d67b13;
 }
 
-nav * {
-    font-family: "Kanit", sans-serif;
+
+*{
+    margin: 0;
+    padding: 0;
 }
 
-/* NavBar */
-
-.hideNavBar {
-    display: none;
+button {
+    cursor: pointer;
 }
 
-.navBar {
-    height: 4rem;
-    width: 100vw;
-    font-weight: bold;
-    font-family: "Kanit", sans-serif;
-    font-weight: 700;
+a{
+    text-decoration: none;
+}
+
+.navBarWrapper {
     display: flex;
-    background-color: var(--color_1);
+    align-items: center;
     justify-content: space-between;
-    top: 0;
-    position: relative;
+    width: 100%;
+    height: 5.5rem;
+    font-family: var(--fontFam);
+    font-weight: bold;
+    background-color: var(--nav-bg-color);
 }
 
-.navBar > div {
+.navBarWrapper > div {
     display: flex;
+    gap: clamp(0px, 2vw, .65rem);
     align-items: center;
 }
 
-.navBar .titleWrapper {
+.navBarWrapper .left {
     margin-left: 1rem;
-    font-family: "Martian Mono", monospace;
-    font-size: xx-large;
-    color: var(--color_2);
-    gap: clamp(.1rem, 2vw, 1rem);
-    font-size: clamp(1rem, 2vw, 2rem);
 }
 
-.navBar .titleWrapper > img {
+.navBarWrapper .left .title {
+    color: var(--nav-title);
+}
+.navBarWrapper .left > img {
     display: flex;
     width: 30px;
 }
 
-.navBar .links {
+.navBarWrapper .mid > ul{
     display: flex;
-    gap: clamp(.25rem, 2vw, 2.5rem);
-    font-size: clamp(.3rem, 2vw, 1rem);
-}
-
-.navBar .links .Links {
-    display: flex;
-    align-items: center;
-    gap: clamp(4px, 2vw, 8px);
-    position: relative;
-    text-decoration: none;
-    color: var(--bg-indicator);
-}
-
-.navBar .links .Links > span {
-    position: relative;
-}
-
-.navBar .links .indicated {
-    color: var(--color_4);
-    text-shadow: 0 0 5px var(--color_4);
-}
-
-.navBar .links .indicated .indicator {
-    position: absolute;
-    bottom: -.25rem;
-    left: 0;
-    height: .2rem;
-    width: 100%;
-    z-index: 1;
-    background-color: #975203;
-    transform: scaleX(0);
-    animation: indic .75s forwards ease-out;
-}
-
-.navBar .authWrapper {
-    margin-right: 1rem;
-    gap: clamp(.1rem, 2vw, 1rem);
-}
-
-
-.navBar .authWrapper .hamButton{
-    display: none;
-}
-
-.navBar .authWrapper > button {
-    font-size: clamp(.5rem, 2vw, 1.1rem) ;
-    font-family: "Kanit", sans-serif;
-    font-weight: bold;
-    padding: clamp(.3rem, 2vw, .5rem) clamp(.5rem, 2vw, 1.2rem) ;
-    border-radius: 12px;
-    outline: none;
-    border: none;
-    display: flex;
-    align-items: center;
-    text-wrap: nowrap;
     gap: .5rem;
+    align-items: center;
 }
 
-
-/* Left Button for Sign In */
-
-
-.navBar .authWrapper .leftButt {
-    background-color: var(--color_2);
-    color: var(--color_1);
+.navBarWrapper .mid > ul > .Links {
+    list-style: none;
+    color: var(--nav-color);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all .3s ease-out;
 }
 
-.navBar .authWrapper .leftButt:hover {
-    color: var(--color_2);
-    background-color: var(--color_4);
+.navBarWrapper .mid > ul > .Links .content {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.5px, 2vw, 4px);
 }
 
-.navBar .authWrapper .leftButt:active {
-    background-color: #f7cdcd;
-    color: #975203;
+.navBarWrapper .mid > ul > .ind {
+    list-style: none;
+    color: var(--nav-indColor);
 }
 
-/* Right Button for Sign Up */
+.navBarWrapper .mid > ul > .ind .indicator{
+    transform: scaleX(0);
+    background-color: var(--nav-indColor);
+    height: .2rem;
+    margin-top: -2px;
+    animation: indicate .5s ease-out forwards;
+}
 
-.navBar .authWrapper .rightButt {
+@keyframes indicate {
+    to {
+        transform: scaleX(.95);
+    }
+}
+
+.navBarWrapper .right .authButts, .navBarWrapper .right .HamburgerButt{
+    padding: .5rem 1rem;
+    font-size: 1.15rem;
+    border: none;
+    font-weight: bold;
+    border-radius: .5rem;
+}
+
+.navBarWrapper .right .HamburgerButt {
+    margin-right: 1rem;
+}
+
+.navBarWrapper .right .authButts > .Links{
+    color: inherit;
+}
+
+.navBarWrapper .right > button:nth-child(1) {
+    background-color: var(--nav-sigIn);
+    color: var(--nav-bg-color);
+}
+
+.navBarWrapper .right > button:nth-child(1):hover {
+    color: var(--nav-sigIn);
+    background-color: var(--buttBgColor);
+}
+
+.navBarWrapper .right > button:nth-child(2) {
     background-color: black;
     color: white;
 }
 
-.navBar .authWrapper .rightButt:hover {
-    background-color: white;
+.navBarWrapper .right > button:nth-child(2):hover {
     color: black;
-}
-
-.navBar .authWrapper .rightButt:active {
-    background-color: #f7cdcd;
-    color: #975203;
-}
-
-.navBar .authWrapper .hamButton {
-    display: none;
-}
-
-/* Animations */
-
-@keyframes popUp {
-    to {
-        display: block;
-        opacity: 1;
-    }
-}
-
-@keyframes popDown {
-    to {
-        display: none;
-        opacity: 0;
-    }
+    background-color: white;
 }
 
 
-@keyframes indic {
-    to{
-        transform: scaleX(1.2);
-    }
-}
+/* SideBar Component */
 
-/* SideBar */
-
-.sideBar {
+.sidebar {
     opacity: 0;
     animation: popUp .8s forwards ease-out;
 }
@@ -182,14 +150,14 @@ nav * {
     animation: popDown .8s forwards ease-out;
 }
 
-.sideBar > ul, .hideSideBar > ul {
+.sidebar > ul, .hideSideBar > ul {
     width: 7.5rem;
     height: 100vh;
     position: absolute;
     right: 0;
 }
 
-.sideBar > ul {
+.sidebar > ul {
     background-color: #F5AE6F;
     font-weight: bolder;
     animation: slideSideBar .5s forwards ease-out;
@@ -200,7 +168,6 @@ nav * {
     font-weight: bolder;
     animation: hideSidebarSlide .5s forwards ease-out;
 }
-
 
 @keyframes slideSideBar {
     from {
@@ -221,69 +188,35 @@ nav * {
 }
 
 
-/* Media Frames */
+@keyframes popUp {
+    to {
+        display: block;
+        opacity: 1;
+    }
+}
 
-@media (min-width: 600px) {
-    .sideBar > ul, .hideSideBar > ul {
+@keyframes popDown {
+    to {
+        display: none;
+        opacity: 0;
+    }
+}
+
+@media (min-width: 700px) {
+    .sidebar > ul, .hideSideBar > ul {
         display: none;
     }
 }
 
-@media (max-width: 600px) and (max-height: 800px) {
-    /* Navbar */
-    
-    .navBar {
-        height: 3.5rem;
-    }
-
-    /* Left */
-
-    .navBar .titleWrapper {
-        gap: 0.2rem;
-    }
-
-    .navBar .titleWrapper > img {
-        width: 30px;
-    }
-
-    .navBar .titleWrapper > h1 {
-        font-size: 1.5rem;
-    }
-
-    /* Middle */
-
-    .navBar .links {
+@media (max-width: 700px) and (max-height: 800px) {
+    .navBarWrapper .mid > ul{
         display: none;
     }
 
-    /* Right */
 
-    .navBar .authWrapper {
-        gap: .5rem;
-    }
+    /* SideBar Component */
 
-    .navBar .authWrapper > button {
-        font-size: .5rem;
-        padding: .5rem .75rem;
-    }
-    
-    .navBar .authWrapper .leftButt > i {
-        font-size: .9rem;
-    }
-
-    .navBar .authWrapper .hamButton {
-        display: block;
-    }
-
-    /* NavBar and SideBar */
-
-    .navBar .links {
-        display: none;
-    }
-
-    /* SideBar */
-
-    .sideBar, .hideSideBar {
+    .sidebar, .hideSideBar {
         width: 100vw;
         height: 100vh;
         background-color: #f1c386bd;
@@ -296,13 +229,13 @@ nav * {
         overflow-y: scroll;
     }
 
-    .sideBar > ul, .hideSideBar > ul {
+    .sidebar > ul, .hideSideBar > ul {
         background-color: #F5AE6F;
         font-weight: bolder;
         height: 120vh;
     }
 
-    .sideBar > ul > .hamButton, .hideSideBar > ul > .hamButton {
+    .sidebar > ul > .HamburgerButt, .hideSideBar > ul > .HamburgerButt {
         width: 100%;
         font-size: 2rem;
         border: none;
@@ -311,12 +244,12 @@ nav * {
         color: var(--color_3);
     }
 
-    .sideBar > ul > .hamButton:hover, .hideSideBar > ul > .hamButton:hover {
-        background-color: var(--bg-indicator);
+    .sidebar > ul > .HamburgerButt:hover, .hideSideBar > ul > .HamburgerButt:hover {
+        background-color: var(--sideBarIndicator);
         color: wheat;
     }
 
-    .sideBar > ul .Links, .hideSideBar > ul .Links{
+    .sidebar > ul > .Links, .hideSideBar > ul > .Links{
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -327,20 +260,26 @@ nav * {
         padding: 2rem 0;
         color: inherit;
         text-decoration: none;
-        background-color: var(--color_1);
         transition: .5s ease-out;
     }
 
-    .sideBar > ul .Links > span, .hideSideBar > ul .Links > span{
-        font-family: Kanit;
-    }
-
-    .sideBar > ul > .indicated, .hideSideBar > ul > .indicated {
-        background-color: var(--bg-indicator);
+    .sidebar > ul > .Links:hover {
+        background-color: var(--sideBarIndicator);
         color: white;
     }
 
-    .indicated .indicator {
+    .sidebar > ul > .indicated, .hideSideBar > ul > .indicated {
+        background-color: var(--sideBarIndicator);
+        color: white;
+    }
+
+    .sidebar > ul > .Links > img, .hideSideBar > ul > .Links > img {
+        width: 30px;
+        display: block;
+        margin: auto;
+    }
+
+    .indicated .indication {
         display: none;
     }
 }

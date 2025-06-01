@@ -1,0 +1,75 @@
+.bottomOptionsWrapper button {
+    padding: clamp(.3rem, 2vw, .75rem) clamp(.5rem, 2vw, 1rem);
+    outline: none;
+    border: none;
+    border-radius: .5rem;
+    background-color: var(--buttBgColor);
+    color: var(--buttColor);
+    border: .2rem solid var(--buttBgColor);
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    gap: .5rem;
+    transition: .2s ease-out;
+    margin: clamp(.8rem, 2vw, 1.3rem) 0;
+}
+
+.bottomOptionsWrapper button:hover {
+    background-color: var(--buttColor);
+    color: var(--buttBgColor);
+}
+
+.bottomOptionsWrapper {
+    width: 97%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    border-left: 1.5vw solid #f09c2e;
+    border-right: 1.5vw solid #f09c2e;
+    margin: 0 auto;
+}
+
+.bottomOptionsWrapper > button {
+    margin-left: clamp(.7rem, 2vw, 1.2rem);
+}
+
+.bottomOptionsWrapper .left >  button .uncheck {
+    background-color: white;
+    color: transparent;
+}
+
+.bottomOptionsWrapper .left >  button:hover .uncheck {
+    color: white;
+}
+
+.bottomOptionsWrapper .left, .bottomOptionsWrapper .right{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.bottomOptionsWrapper .left {
+    margin-left: clamp(.7rem, 2vw, 1.2rem);
+}
+
+.bottomOptionsWrapper .right {
+    margin-right: clamp(.7rem, 2vw, 1.2rem);
+}
+
+
+@media (max-width: 600px) and (max-height: 800px) {
+    .bottomOptionsWrapper .right, .bottomOptionsWrapper .left {
+        margin: 1rem;
+    }
+
+    .bottomOptionsWrapper .right > button, .bottomOptionsWrapper .left > button {
+        padding: .2rem clamp(.5rem, 2vw, .9rem);
+        font-size: clamp(.8rem, 2vw, 1rem);
+        gap: .5rem;
+    }
+
+
+    .bottomOptionsWrapper button .fullContent{
+        display: none;
+    }
+}

@@ -1,8 +1,6 @@
 import React from 'react'
 import { context } from '../../App'
-import { useContext } from 'react'
-import { useState } from 'react'
-
+import { useContext, useState, useEffect } from 'react'
 // Tasks File Components
 import BottomOptions from './BottomOptions/BottomOptions'
 import EditTaskPrompt from './EditTaskPrompt/EditTaskPrompt'
@@ -15,6 +13,7 @@ import SaveChanges from '../../Components/SaveChanges/SaveChanges'
 
 // Style 
 import s from "./Tasks.module.css"
+import styles from "./TasksContainer/TasksContainer.module.css"
 
 // Other Components
 import Button from '../../Components/Button'
@@ -23,10 +22,11 @@ import { createContext } from 'react'
 export const tasksContext = createContext()
 
 import { db } from '../../Firebase/Firebase'
-import { doc, getDoc } from 'firebase/firestore'
+import { doc, getDoc, updateDoc } from 'firebase/firestore'
+import { update } from 'firebase/database'
 const Tasks = () => {
   // Context
-  const {user, setHideNavBar, setHideSideBar} = useContext(context)
+  const {user, setHideNavBar, setHideSideBar, setPages} = useContext(context)
 
   // States
   // Booleans
@@ -36,8 +36,10 @@ const Tasks = () => {
   const [sortingTypeBar, setSortingTypeBar] = useState(false)
   const [searching, setSearching] = useState(false)
   const [sorting, setSorting] = useState(false)
+  const [selecting, setSelecting] = useState(false)
+  const [editing, setEditing] = useState(false)
 
-  const [type, setType] = useState("")
+  const [type, setType] = useState("Pending")
 
   // Numbers 
   
@@ -54,6 +56,37 @@ const Tasks = () => {
     {type: "Finished", ind: false},
     {type: "All Tasks", ind: false},
   ])
+
+  // ContextVariable
+
+  const contextVariables = {
+    // Booleans
+    writeTaskPrompt, setWriteTaskPrompt,
+    editTaskPrompt, setEditTaskPrompt,
+    sortTaskPrompt, setSortTaskPrompt,
+    sortingTypeBar, setSortingTypeBar,
+    type, setType,
+    searching, setSearching,
+    sorting, setSorting,
+    selecting, setSelecting,
+    editing, setEditing,
+
+    // Numbers
+    numberOfChanges, setNumberOfChanges,
+
+    // Arrays & Objects
+    tasks, setTasks,
+    filteredTask, setFilteredTask,
+    updatedTasks, setUpdatedTasks,
+    selectedTasks, setSelectedTasks,
+    changes, setChanges,
+    sortingTypes, setSortingTypes,
+
+    // Functions
+    unselectAll
+  }
+
+  // *-------------------- FUNCTIONS  -----------------------* 
 
   function writeTask() {
 
@@ -75,32 +108,34 @@ const Tasks = () => {
 
   }
 
-  const contextVariables = {
-    // Booleans
-    writeTaskPrompt, setWriteTaskPrompt,
-    editTaskPrompt, setEditTaskPrompt,
-    sortTaskPrompt, setSortTaskPrompt,
-    sortingTypeBar, setSortingTypeBar,
-    type, setType,
-    searching, setSearching,
-    sorting, setSorting,
-
-    // Numbers
-    numberOfChanges, setNumberOfChanges,
-
-    // Arrays & Objects
-    tasks, setTasks,
-    filteredTask, setFilteredTask,
-    updatedTasks, setUpdatedTasks,
-    selectedTasks, setSelectedTasks,
-    changes, setChanges,
-    sortingTypes, setSortingTypes,
-
-    // Functions
-    unselectAll
-  }
+  // *-------------------- FUNCTIONS  -----------------------*
 
   
+  // Effects
+
+  useEffect(()=>{
+      setPages(prev => prev.map((p)=>{
+          if(p.name === "Tasks") return {...p, ind: true}
+
+          return{...p}
+      }))
+
+      const getFromFirestore = async () => {
+        try {
+          const docRef = doc(db, "Users", "Mav3CkHiEkOgsggTfW0q0pioWFL2")
+          const data = await getDoc(docRef)
+
+          let tasksData = data.data().tasks
+          
+          
+          setTasks([...tasksData])
+        } catch (error) {
+          console.log(error)
+        }
+      }
+
+      getFromFirestore()
+  },[])
 
   return <>
     <tasksContext.Provider value={contextVariables}>

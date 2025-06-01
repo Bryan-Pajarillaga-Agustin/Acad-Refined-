@@ -5,9 +5,15 @@ import Button from '../../Components/Button'
 import { Link } from 'react-router-dom'
 import { context } from '../../App'
 const Home = () => {
-  const {pagination} = useContext(context) 
+  const {pagination, setPages} = useContext(context) 
   
-  
+  useEffect(()=>{
+        setPages(prev => prev.map((p)=>{
+            if(p.name === "Home") return {...p, ind: true}
+
+            return{...p}
+        }))
+    },[])
 
   return (
     <>

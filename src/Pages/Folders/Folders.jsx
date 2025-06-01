@@ -1,9 +1,11 @@
+import { context } from "../../App"
 import { db } from "../../Firebase/Firebase"
 import s from "./Folders.module.css"
-import { useEffect, useRef, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 
 
 const Folders = () => {
+    const {setPages} = useContext(context)
     const folderInputRef = useRef(null)
 
     const [renameFolderInput, setRenameFolderInput] = useState(null)
@@ -173,6 +175,14 @@ const Folders = () => {
             setOpenedFolder([...filesAndFolders])
         }
     },[folderPath, folders])
+
+    useEffect(()=>{
+        setPages(prev => prev.map((p)=>{
+            if(p.name === "Folders") return {...p, ind: true}
+
+            return{...p}
+        }))
+    },[])
 
     // Component
 

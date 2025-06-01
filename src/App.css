@@ -16,6 +16,21 @@ button {
 }
 
 body {
-  overflow: hidden;
-  overflow-y: scroll;
+    overflow: hidden;
+    overflow-y: auto;
+    width: 99vw;
+}
+
+*::-webkit-scrollbar {
+    width: 1vw;
+    background-color: var(--buttColor);
+}
+
+*::-webkit-scrollbar-track{
+    background-color: #e8be76;
+}
+
+
+*::-webkit-scrollbar-thumb{
+    background-color: #a5a3a3;
 }

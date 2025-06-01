@@ -1,0 +1,67 @@
+.hide {
+    display: none;
+}
+
+.formThree {
+    font-family: "Kulim Park", sans-serif;
+    font-weight: bold;
+}
+
+.formThree > div {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0 1.2rem;
+    gap: .5rem;
+}
+
+.formThree > div > h4 {
+    color: white;
+    margin-top: .5rem;
+} 
+
+.formThree > div > input {
+    border: none;
+    outline: none;
+    color: white;
+    font-size: .95rem;
+    text-indent: 1rem;
+    font-weight: bold;
+    border-bottom: .2rem solid white;
+    background-color: transparent;
+}
+
+.formThree > div > span {
+    color: rgb(231, 74, 74);
+    font-size: .7rem;
+    text-indent: .5rem;
+}
+
+
+
+
+@media (max-width: 400px) {
+    .formThree {
+        gap: 0.25rem;
+    }
+    
+    .formThree > div {
+        gap: 0.25rem;
+    }
+
+    .formThree > div > h4 {
+        font-size: .85rem;
+    }
+
+    .formThree > div > input {
+       font-size: .75rem;
+       border-bottom: .1rem solid white;
+    }
+
+    .formThree > div > img {
+        width: 20px;
+        position: absolute;
+        right: 10px;
+        bottom: 5px;
+    }
+}

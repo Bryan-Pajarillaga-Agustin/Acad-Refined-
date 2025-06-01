@@ -1,0 +1,96 @@
+.hide {
+    display: none;
+}
+
+
+.formTwo {
+    font-family: "Kulim Park", sans-serif;
+    font-weight: bold;
+}
+
+.formTwo > h3 {
+    color: white;
+    text-align: center;
+} 
+
+.formTwo .top {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 1.2rem 1.2rem;
+    gap: .5rem;
+}
+
+.formTwo .top > h3 {
+    margin-top: 1rem;
+    color: white;
+}
+
+.formTwo .top > button {
+    background-color: #fff;
+    color: var(--bg-color);
+    border: none;
+    font-weight: bolder;
+    font-size: .75rem;
+    padding: .5rem 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px -1px black;
+    transition: all .13s ease-in-out;
+}
+
+.formTwo .top .notIndicated:hover {
+    background-color: var(--bg-color);
+    color: #fff;
+}
+
+.formTwo .top .indicated {
+    background-color: #9658E2;
+    color: white;
+}
+
+.formTwo .top > button:active {
+    background-color: var(--bg-color);
+    color: #fff;
+}
+
+.formTwo .top > textarea {
+    resize: none;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: .95rem;
+    text-indent: .5rem;
+    font-weight: bold;
+    border-bottom: .2rem solid white;
+    background-color: transparent;
+    margin-top: 1rem;
+}
+
+
+
+
+@media (max-width: 400px) {
+    .formTwo {
+        gap: 0.25rem;
+    }
+    
+    .formTwo > div {
+        gap: 0.25rem;
+    }
+
+    .formTwo > div > h4 {
+        font-size: .85rem;
+    }
+
+    .formTwo > div > input {
+       font-size: .75rem;
+       border-bottom: .1rem solid white;
+    }
+
+    .formTwo > div > img {
+        width: 20px;
+        position: absolute;
+        right: 10px;
+        bottom: 5px;
+    }
+}

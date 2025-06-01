@@ -1,0 +1,106 @@
+:root{
+    --bg-color: #eaae2c;
+    --f-color: #fff;
+    --button-bg-color: #eaae2c; 
+    --button-color: #B658E2;
+}
+
+.hide {
+    display: none;
+}
+
+.formFour {
+    font-family: "Kulim Park", sans-serif;
+    font-weight: bold;
+}
+
+.formFour > div {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0 1.2rem;
+    gap: .5rem;
+}
+
+.formFour > div > h4 {
+    color: white;
+    margin-top: .5rem;
+    text-align: center;
+    font-size: 1.25rem;
+} 
+
+.formFour > div > input {
+    border: none;
+    outline: none;
+    color: white;
+    font-size: .95rem;
+    text-indent: 1rem;
+    font-weight: bold;
+    border-bottom: .2rem solid white;
+    background-color: transparent;
+}
+
+.formFour .wrapper > div {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.formFour .wrapper > div > button {
+    background-color: #fff;
+    width: 100px;
+    color: var(--bg-color);
+    border: none;
+    font-weight: bolder;
+    font-size: .75rem;
+    padding: .5rem 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px -1px black;
+    transition: all .13s ease-in-out;
+}
+
+.formFour .wrapper > div > .IndicatedButt {
+    background-color: #9658E2;
+    color: white;
+}
+
+.formFour .wrapper > div > button:active {
+    background-color: var(--bg-color);
+    color: #fff;
+}
+
+.notIndicatedButt {
+    background-color: #ffffff;
+    color: var(--bg-color);
+}
+
+
+
+@media (max-width: 400px) and (max-height: 800px) {
+    .formFour {
+        gap: 0.25rem;
+    }
+    
+    .formFour > div {
+        gap: 0.25rem;
+    }
+
+    .formFour > div > h4 {
+        font-size: 1rem;
+        word-spacing: -2.5px;
+        margin-bottom: 1.5rem;
+    }
+
+    .formFour .wrapper > div > button {
+        background-color: #fff;
+        width: 120px;
+        color: var(--bg-color);
+        border: none;
+        font-weight: bolder;
+        font-size: .8rem;
+        padding: .25rem 0;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px -1px black;
+    }
+}

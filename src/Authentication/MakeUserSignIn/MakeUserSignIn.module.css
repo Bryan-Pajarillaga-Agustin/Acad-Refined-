@@ -1,0 +1,211 @@
+.Make_User_Sign_In_Wrapper, .Hide_Make_User_Sign_In_Wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    font-family: Kanit;
+    color: white;
+    background-color: #e4e4e4e4;
+}
+
+.Hide_Make_User_Sign_In_Wrapper {
+    display: none;
+    animation: hide 1s forwards ease-out ;
+}
+
+
+.Make_User_Sign_In_Box {
+    width: 400px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #EAAE2C;
+    position: relative;
+}
+
+.Hide_Make_User_Sign_In_Wrapper .Make_User_Sign_In_Box {
+    animation: hidePrompt .5s forwards ease-out ;
+}
+
+.Make_User_Sign_In_Wrapper .Make_User_Sign_In_Box {
+    animation: showPrompt .5s forwards ease-out ;
+}
+
+.Make_User_Sign_In_Box > * {
+    margin: .75rem;
+    text-align: center;
+}
+
+.Make_User_Sign_In_Box .Images {
+    position: absolute;
+    bottom: 225px;
+    left: 50%;
+    transform: translate(-62.5%, 0);
+}
+
+
+.Make_User_Sign_In_Box .Images > img {
+    width: 250px;
+}
+
+.Make_User_Sign_In_Box .Images > img:nth-of-type(2) {
+    position: absolute;
+    left: 75%;
+    bottom: 10%;
+    transform: rotateZ(20deg);
+    width: 90px;
+    height: 150px;
+}
+
+/* Contents */
+
+.Make_User_Sign_In_Box > h1 {
+    font-size: 2rem;
+    margin-top: 2rem;
+}
+
+.Make_User_Sign_In_Box > p {
+    font-size: 1.2rem;
+    margin: 0 1rem;
+    width: 70%;
+}
+
+.Make_User_Sign_In_Box .Buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.Make_User_Sign_In_Box .Buttons > button {
+    background-color: #fff;
+    color: var(--bg-color);
+    border: none;
+    font-weight: bolder;
+    font-size: 1rem;
+    padding: .5rem 2rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px -1px black;
+}
+
+.Make_User_Sign_In_Box .Buttons > button:hover {
+    background-color: var(--bg-color);
+    color: #fff;
+}
+
+.Make_User_Sign_In_Box .Hide_Prompt_Button {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    border: none;
+    border-radius: 20px;
+    background-color: #EAAE2C;
+    color: white;
+    z-index: 1;
+}
+.Make_User_Sign_In_Box .Hide_Prompt_Button:hover {
+    color: var(--bg-color);
+    background-color: #fff;
+}
+
+@keyframes showPrompt {
+    0%{
+        scale: 0;
+    }
+    90%{
+        scale: 1.15;
+    }
+    100% {
+        scale: 1;
+    }
+}
+
+@keyframes hidePrompt {
+    20%{
+        scale: 1.15;
+    }
+    100%{
+        scale: 0;
+    }
+}
+
+
+@keyframes hide {
+    0% {
+        opacity: 1;
+        display: flex;
+    }    
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+@media (max-width:600px) and (max-height:800px) {
+    .Make_User_Sign_In_Box {
+        width: 290px;
+        height: 260px;
+    }
+
+    .Make_User_Sign_In_Box .Hide_Prompt_Button {
+        position: absolute;
+        top: -12px;
+        right: -12px;
+        font-size: 1.5rem;
+        width: 50px;
+        height: 50px;
+        
+    }
+
+    .Make_User_Sign_In_Box .Images {
+        position: absolute;
+        bottom: 165px;
+        left: 50%;
+        transform: translate(-62.5%, 0);
+    }
+
+    .Make_User_Sign_In_Box .Images > img:nth-of-type(2) {
+        position: absolute;
+        left: 75%;
+        bottom: 10%;
+        transform: rotateZ(20deg);
+        width: 50px;
+        height: 120px;
+    }
+    
+
+    .Make_User_Sign_In_Box .Images > img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .Make_User_Sign_In_Box > h1 {
+        font-size: 1.3rem;
+    }
+
+    .Make_User_Sign_In_Box > p {
+        font-size: .75rem;
+    }
+
+    .Make_User_Sign_In_Box .Buttons > button {
+        background-color: #fff;
+        color: var(--bg-color);
+        border: none;
+        font-weight: bolder;
+        font-size: .75rem;
+        padding: .5rem 2rem;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px -1px black;
+    }
+}

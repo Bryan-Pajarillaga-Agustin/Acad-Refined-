@@ -1,0 +1,68 @@
+.hide {
+    display: none;
+}
+.formOne {
+    font-family: "Kulim Park", sans-serif;
+    font-weight: bold;
+}
+.formOne > div {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0 1.2rem;
+    gap: .5rem;
+}
+.formOne > div > h4 {
+    color: white;
+    margin-top: .5rem;
+} 
+.formOne > div > input {
+    border: none;
+    outline: none;
+    color: white;
+    font-size: .95rem;
+    text-indent: 1rem;
+    font-weight: bold;
+    border-bottom: .2rem solid white;
+    background-color: transparent;
+}
+.formOne  > div > img{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 1.2rem;
+}
+
+.formOne > div > span {
+    color: rgb(231, 74, 74);
+    font-size: .7rem;
+    text-indent: .5rem;
+}
+
+@media (max-width: 400px) {
+    .formOne {
+        gap: 0.25rem;
+    }
+    
+    .formOne > div {
+        gap: 0.25rem;
+    }
+
+    .formOne > div > h4 {
+        font-size: .85rem;
+    }
+
+    .formOne > div > input {
+       font-size: .75rem;
+       border-bottom: .1rem solid white;
+    }
+
+    .formOne > div > img {
+        width: 20px;
+        height: auto;
+        position: absolute;
+        right: 10px;
+        bottom: 5px;
+    }
+}

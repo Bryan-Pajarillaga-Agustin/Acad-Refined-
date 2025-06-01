@@ -1,79 +1,90 @@
-import React, { useContext, useEffect } from 'react'
-import s from "./Navbar.module.css"
+import { useState } from 'react'
+import s from './NavBar.module.css'
+import { useContext, useEffect } from 'react'
 import { context } from '../App'
 import { Link } from 'react-router-dom'
-const Navbar = () => {
-  const {pages, pagination, user, hideNavBar, setHideNavBar, hideSideBar, setHideSideBar} = useContext(context)
-  useEffect(()=>{
-    console.log(pages)
-  },[pages])
+import Button from '../Components/Button'
 
+const NavBar = () => {
+    const { pages, setPages, hideSideBar, setHideSideBar } = useContext(context)
+    function changeTab(i) {
+        setPages(prev => prev.map((tab, index) =>
+            index == i ?
+                { ...tab, ind: true } :
+                { ...tab, ind: false }
+        ))
+    }
 
-  return <>
-    <nav className={hideNavBar ? s.hideSideBar : s.navBar}>
-      <div className={s.titleWrapper}>
-        <h1>Acad</h1>
-      </div>
+    function handlePagination() {
 
-      <div className={s.links}>
-        {
-          pages?.map((page,i) => 
-            <Link 
-              to={page.to} 
-              key={page.name} 
-              className={page.ind ? `${s.indicated} ${s.Links}` : s.Links}
-              onClick={()=>{pagination(i)}}>
-              <i className={page.icon}></i>
-              <span>{page.name}</span>
-              <span className={s.indicator}></span>
-            </Link>
-          )
-        }
-      </div>
+    }
 
-      <div className={s.authWrapper}>
-        <AuthButtons user={user}/>
-        <button 
-          className={s.hamButton}
-          onClick={()=>{hideSideBar ? setHideSideBar(false) : setHideSideBar(true)}}>
-            <i className="fa fa-list-ul" ></i>
-        </button>
-      </div>
-    </nav>
+    useEffect(()=>{
+        console.log(hideSideBar)
+    },[hideSideBar])
 
-    <nav className={hideSideBar ? s.hideSideBar : s.sideBar}>
-      <ul className={hideSideBar ? s.hideNavLinks : s.NavLinks}>
-        <button className={s.hamButton} onClick={()=>{hideSideBar  ? setHideSideBar(false) : setHideSideBar(true)}} ><i className="fa fa-list-ul" ></i></button>
-        {
-          pages?.map((page,i) => 
-            <Link 
-              to={page.to} 
-              key={page.name} 
-              className={page.ind ? `${s.indicated} ${s.Links}` : s.Links}
-              onClick={()=>{pagination(i)}}>
-              <i className={page.icon}></i>
-              <span>{page.name}</span>
-            </Link>)
-        }
-      </ul>
-    </nav>
-  </>
+    return (
+        <>
+            <div className={s.navBarWrapper}>
+                <div className={s.left}>
+                    <img src="./web-icon.png" />
+                    <h1 className={s.title}>
+                        Acad
+                    </h1>
+                </div>
+                <div className={s.mid}>
+                    <ul>
+                        {
+                            pages?.map((tab, i) => {
+                                return (
+                                    <Link
+                                        to={tab.path}
+                                        key={tab.name}
+                                        className={tab.ind ? `${s.ind} ${s.Links}` : `${s.notInd} ${s.Links}`}
+                                        onClick={() => changeTab(i)}
+                                    >
+                                        <span className={s.content}>
+                                            {tab.icon}
+                                            {tab.name}
+                                        </span>
+                                        <span className={s.indicator}></span>
+                                    </Link>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
+                <div className={s.right}>
+                    <button className={s.authButts}><Link to={"/Acad/SignIn"} className={s.Links}>Sign In</Link></button>
+                    <button className={s.authButts}><Link to={"/Acad/SignUp"} className={s.Links}>Sign Up</Link></button>
+                    <button className={s.HamburgerButt} onClick={()=>{setHideSideBar(false)}}><i className="fa fa-list-ul"></i></button>
+                </div>
+            </div>
+
+            <div className={hideSideBar == false ? s.sidebar : s.hideSideBar}>
+                <ul className={hideSideBar == false ? s.NavLinks : s.hideNavLinks}>
+                    <Button className={s.HamburgerButt} func={() => { !hideSideBar ? setHideSideBar(true) : setHideSideBar(false) }} content={(<i className="fa fa-list-ul" ></i>)}></Button>
+                    {
+                        pages.map((link, i) => {
+                            return (
+                                <Link
+                                    to={link.path}
+                                    key={link.path}
+                                    onClick={() => { changeTab(link, i) }}
+                                    className={link.ind ? `${s.Links} ${s.indicated}` : `${s.Links} ${s.notIndicated}`}>
+                                    {link.icon}
+                                    <span>
+                                        {link.name}
+                                        <span className={s.indication}></span>
+                                    </span>
+                                </Link>
+                            )
+                        })
+                    }
+                </ul>
+            </div>
+        </>
+    )
 }
 
-// Authentication Buttons Component
-
-const AuthButtons = ({user}) => {
-  if(user) {
-    return <>
-      <button className={s.leftButt}>Account</button>
-      <button className={s.rightButt}>Sign Out</button>
-    </>
-  }
-
-  return <>
-    <button className={s.leftButt}>Login</button>
-    <button className={s.rightButt}>SignUp</button>
-  </>
-}
-
-export default Navbar
+export default NavBar

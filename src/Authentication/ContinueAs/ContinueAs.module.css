@@ -1,0 +1,92 @@
+
+
+.Continue_As_Wrapper, .Hide_Continue_As_Wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: Kanit;
+    background-color: #a1a3a682;
+}
+
+.Hide_Continue_As_Wrapper {
+    display: none;
+}
+
+.Continue_As_Wrapper{
+    display: flex;
+}
+
+.Continue_As_Box {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 250px;
+    border-radius: 1rem;
+    background-color: #e69e56;
+    padding: 1rem;
+    position: relative;
+    box-shadow: 0 5px 10px -3px black;
+    border: #e57513 solid .5rem;
+    overflow: hidden;
+}
+
+.Top {
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.Top > i {
+    font-size: 5rem;
+    background-color: white;
+    padding: 1rem;
+    width: 5rem;
+    height: 5rem;
+    text-align: center;
+    border-radius: 50%;
+    border: .5rem solid #e57513;
+    box-shadow: 0 5px 10px -3px #ffffffb6;
+    margin-bottom: 1rem;
+}
+
+.Top > h3 {
+    color: white;
+}
+
+.Top > h3:nth-of-type(2) {
+    text-decoration: underline;
+}
+
+.Options {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 15%;
+    width: 100%;
+}
+
+.Options > button {
+    font-family: Kanit;
+    font-weight: bold;
+    width: 50%;
+    color: #e69e56;
+    border: none;
+    border-top: .5rem solid #e57513;
+}
+
+.Options > button:hover {
+    background-color: #e57513;
+    color: white;
+}
+
+
+

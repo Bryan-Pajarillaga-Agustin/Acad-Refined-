@@ -113,8 +113,21 @@
     overflow-y: hidden;
 }
 
-.topOptionsBox::-webkit-scrollbar{
-    display: none;
+.topOptionsBox::-webkit-scrollbar {
+    height: .5rem;
+    width: .2rem;
+    transform: translateX(1rem);
+    border-radius: 50%;
+    background-color: var(--buttColor);
+}
+
+.topOptionsBox::-webkit-scrollbar-track{
+    background-color: #e8be76;
+}
+
+
+.topOptionsBox::-webkit-scrollbar-thumb{
+    background-color: #a5a3a3;
 }
 
 .topOptionsBox > button {
